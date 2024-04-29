@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+
+  <!-- LinkedIn Links -->
+  <meta name="theme-color" content="#000000">
+  <meta 
+  property="og:title"
+  content="Flask Starter"
+/><meta 
+  name="image"
+  property="og:image"
+  content="{{ url_for('bp_main.website_assets_favicon', filename='dd_and_flask_02-1200x627.png') }}"
+/><meta 
+  name="author"
+  content="Nick Rodriguez"
+/><meta 
+  property="og:description"
+  content="Starter Flask Project with Login."
+/><meta 
+  property="og:url"
+  content="https://starter_flask_01.dashanddata.com"
+/>
+  <!-- icon for iPhone  shortcut -->
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('bp_main.website_assets_favicon', filename='database03-180x180.png') }}">
+  <!-- favicon - image on tabs of browser pages-->
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('bp_main.website_assets_favicon', filename='database03-16x16.png') }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('bp_main.website_assets_favicon', filename='database03-32x32.png') }}">
+  <link rel="icon" type="image/png" sizes="64x64" href="{{ url_for('bp_main.website_assets_favicon', filename='database03-64x64.png') }}">
+  <!-- it seems this svg takes priority but it doesnt look good. We'll keep it here just for reference-->
+  <!-- <link rel="icon"  type="image/svg+xml" href="{{ url_for('bp_main.website_assets_favicon', filename='database03.svg') }}">-->
+
+
+  <title>Flask Starter</title>
+</head>
+<body >
+
+  {% block main %}{% endblock %}
+
+  {% if current_user.is_authenticated %}
+</br>
+</br>
+</br>
+  Logged in:
+    <h1> {{ current_user.username }} </h1>
+  {% endif %}
+
+</body>
+</html>
